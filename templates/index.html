@@ -1,0 +1,48 @@
+{% extends "base.html"%}
+{% block title %}Home{% endblock %}
+{% block heading %}Home{% endblock %}
+{% block content %}
+    <p>Prayer times.</p>
+    {{ content|safe}}
+    <table class="table table-striped table-dark table-bordered">
+        <thead class="thead-dark">
+        <tr>
+          <th>
+            Date
+          </th>
+          <th>
+            Fajr
+          </th>
+          <th>
+            Sunrise
+          </th>
+          <th>
+            Duhr
+          </th>
+          <th>
+            Asr
+          </th>
+          <th>
+            Maghrib
+          </th>
+          <th>
+            Isha
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for dictionary in calendar %}
+        <tr>
+
+          {% for value in dictionary.values() %}
+              <td>
+                <p>{{ value }}</p>
+              </td>
+              {% endfor %}
+
+        </tr>
+        {% endfor %}
+    </tbody>
+
+      </table>
+{% endblock %}
